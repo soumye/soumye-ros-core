@@ -6,6 +6,14 @@ from duckietown_msgs.msg import Twist2DStamped
 import numpy as np
 
 def callback(data):
+    """
+    The algorithm to follow should be roughly the following:
+
+    Filter the line detections to find the white ones and yellow ones that are "close" to your lookahead distance L
+    Use these line detections to calculate an estimate of \alpha (I suggest to average between the white and yellow ones)
+    Encapsulate this in a node, wire things up, and try it on the robot.
+
+    """
     # rospy.loginfo(rospy.get_caller_id() + 'I heard %s', data.data)
     print('Call back Pure Pursuit')
     # print('len', len(data.segments), data.segments[0].points)
