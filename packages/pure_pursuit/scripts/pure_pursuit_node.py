@@ -49,13 +49,13 @@ def callback(data):
         y = 0
     L = np.sqrt(x**2 + y**2)
     alpha = np.arctan2(y,x)
-    v = 0.25
+    v = 0.2
     omega = 2*v*(np.sin(alpha))/L
 
     msg = Twist2DStamped()
     print('sending: v, omega', v, omega)
     msg.v = v
-    msg.omega = omega
+    msg.omega = omega*4
     pub.publish(msg)
 
 
