@@ -49,7 +49,7 @@ def callback(data):
         y = 0
     L = np.sqrt(x**2 + y**2)
     alpha = np.arctan2(y,x)
-    v = 0.3
+    v = 0.25
     omega = 2*v*(np.sin(alpha))/L
 
     msg = Twist2DStamped()
@@ -68,11 +68,11 @@ def listener():
     # run simultaneously.
     rospy.init_node('pure_pursuit_node', anonymous=True)
 
-    rospy.Subscriber('/default/lane_filter_node/seglist_filtered', SegmentList, callback)
+    rospy.Subscriber('/walle/lane_filter_node/seglist_filtered', SegmentList, callback)
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
 
 if __name__ == '__main__':
-    pub = rospy.Publisher('/default/joy_mapper_node/car_cmd', Twist2DStamped, queue_size=10)
+    pub = rospy.Publisher('/walle/joy_mapper_node/car_cmd', Twist2DStamped, queue_size=10)
     listener()
