@@ -34,7 +34,7 @@ def callback(data):
             y += (b[0].y + b[1].y)/2
         x = x/len(white)
         y = y/len(white)
-        y = y + .2
+        y = y + .15
     elif len(yellow) > len(white):
         x = 0
         y = 0
@@ -43,7 +43,7 @@ def callback(data):
             y += (b[0].y + b[1].y)/2
         x = x/len(yellow)
         y = y/len(yellow)
-        y = y - .2
+        y = y - .15
     else:
         x = .1
         y = 0
@@ -55,12 +55,12 @@ def callback(data):
     msg = Twist2DStamped()
     print('sending: v, omega', v, omega)
     msg.v = v
-    msg.omega = omega*4
+    msg.omega = omega*3.8
     pub.publish(msg)
 
 
 def listener():
-
+    # From ROS website
     # In ROS, nodes are uniquely named. If two nodes with the same
     # name are launched, the previous one is kicked off. The
     # anonymous=True flag means that rospy will choose a unique
