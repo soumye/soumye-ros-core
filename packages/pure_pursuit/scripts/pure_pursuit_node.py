@@ -82,6 +82,10 @@ def callback(data):
     n = len(data.segments)
     white = []
     yellow = []
+
+    v = 0.2
+    og = 2
+
     for seg in data.segments:
         if seg.color == 0:
             white.append(seg.points)
@@ -117,11 +121,10 @@ def callback(data):
     print("x, y",x, y)
     L = np.sqrt(x**2 + y**2)
     alpha = np.arctan2(y,x)
-    v = 0.2
-    og = 2
-    if np.abs(x) > 0.23:
+
+    if np.abs(x) > 0.21:
         print("gofast")
-        v = 0.6
+        v = 0.5
         og = 1
 
     # v = 0.2
