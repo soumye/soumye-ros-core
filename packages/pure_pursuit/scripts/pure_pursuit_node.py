@@ -54,8 +54,8 @@ def callback_orig(data):
     print("x, y",x, y)
     L = np.sqrt(x**2 + y**2)
     alpha = np.arctan2(y,x)
-    v = 0.3
-    og = 4
+    v = 0.2
+    og = 4.0
 
     omega = 2*v*(np.sin(alpha))/L
     omega = omega*og
