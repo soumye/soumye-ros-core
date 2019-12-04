@@ -83,7 +83,7 @@ def callback(data):
     white = []
     yellow = []
 
-    v = 0.1
+    v = 0.25
     og = 2
 
     for seg in data.segments:
