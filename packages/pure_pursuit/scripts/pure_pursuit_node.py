@@ -55,7 +55,7 @@ def callback_orig(data):
     print("x, y",x, y)
     L = np.sqrt(x**2 + y**2)
     alpha = np.arctan2(y,x)
-    v = 0.2
+    v = 0.25
     og = 2
 
     omega = 2*v*(np.sin(alpha))/L
@@ -153,7 +153,7 @@ def listener():
     # rospy.init_node('pure_pursuit_node', anonymous=True)
 
     # rospy.Subscriber('/default/lane_filter_node/seglist_filtered', SegmentList, callback)
-    rospy.Subscriber('~seglist_filtered', SegmentList, callback)
+    rospy.Subscriber('~seglist_filtered', SegmentList, callback_orig)
 
 
     # spin() simply keeps python from exiting until this node is stopped
