@@ -38,7 +38,7 @@ def callback_orig(data):
             y += (b[0].y + b[1].y)/2
         x = x/len(white)
         y = y/len(white)
-        y = y + .15
+        y = y + .10
     elif len(yellow) > len(white):
         print("follow yellow")
         x = 0
@@ -48,7 +48,7 @@ def callback_orig(data):
             y += (b[0].y + b[1].y)/2
         x = x/len(yellow)
         y = y/len(yellow)
-        y = y - .15
+        y = y - .10
     else:
         x = .1
         y = 0
