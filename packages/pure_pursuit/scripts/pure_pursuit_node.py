@@ -121,8 +121,8 @@ def callback(data):
     og = 2
     if np.abs(x) > 0.23:
         print("gofast")
-        v = 0.6
-        og = 0.8
+        v = 0.5
+        og = 1
 
     # v = 0.2
     # og = 3.5  
