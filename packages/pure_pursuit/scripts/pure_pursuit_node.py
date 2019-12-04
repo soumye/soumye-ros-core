@@ -122,7 +122,7 @@ def callback(data):
     L = np.sqrt(x**2 + y**2)
     alpha = np.arctan2(y,x)
 
-    if np.abs(x) > 0.21:
+    if np.abs(x) > 0.22:
         print("gofast")
         v = 0.5
         og = 1
