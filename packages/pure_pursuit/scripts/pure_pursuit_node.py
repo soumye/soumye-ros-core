@@ -48,7 +48,7 @@ def callback_orig(data):
             y += (b[0].y + b[1].y)/2
         x = x/len(yellow)
         y = y/len(yellow)
-        y = y - .10
+        y = y - .14
     else:
         x = .1
         y = 0
