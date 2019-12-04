@@ -100,7 +100,7 @@ def callback(data):
             y += (b[0].y + b[1].y)/2
         x = x/len(white)
         y = y/len(white)
-        y = y + .15
+        y = y + .10
     elif len(yellow) > len(white):
         print("follow yellow")
         x = 0
@@ -121,7 +121,7 @@ def callback(data):
     og = 2
     if np.abs(x) > 0.23:
         print("gofast")
-        v = 0.5
+        v = 0.6
         og = 1
 
     # v = 0.2
