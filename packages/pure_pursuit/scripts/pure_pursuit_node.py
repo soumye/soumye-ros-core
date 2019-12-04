@@ -83,7 +83,7 @@ def callback(data):
     white = []
     yellow = []
 
-    v = 0.14
+    v = 0.1
     og = 2
 
     for seg in data.segments:
@@ -95,7 +95,7 @@ def callback(data):
     if len(white) == 0 and len(yellow) == 0:
         x = .1
         y = 0
-    elif len(white)>=1.1*len(yellow):
+    elif len(white)>=len(yellow):
         print("follow white")
         x = 0
         y = 0
@@ -105,7 +105,7 @@ def callback(data):
         x = x/len(white)
         y = y/len(white)
         y = y + .10
-    elif 1.1*len(yellow) > len(white):
+    elif len(yellow) > len(white):
         print("follow yellow")
         x = 0
         y = 0
@@ -124,7 +124,7 @@ def callback(data):
 
     if np.abs(x) > 0.22:
         print("gofast")
-        v = 0.6
+        v = 0.55
         og = 1
 
     # v = 0.2
