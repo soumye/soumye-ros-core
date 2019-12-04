@@ -150,7 +150,7 @@ def listener():
     # rospy.init_node('pure_pursuit_node', anonymous=True)
 
     # rospy.Subscriber('/default/lane_filter_node/seglist_filtered', SegmentList, callback)
-    rospy.Subscriber('~seglist_filtered', SegmentList, callback_orig)
+    rospy.Subscriber('~seglist_filtered', SegmentList, callback)
 
 
     # spin() simply keeps python from exiting until this node is stopped
