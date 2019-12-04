@@ -30,6 +30,7 @@ def callback_orig(data):
         x = .1
         y = 0
     elif len(white)>=len(yellow):
+        print("follow white")
         x = 0
         y = 0
         for b in white:
@@ -91,6 +92,7 @@ def callback(data):
         x = .1
         y = 0
     elif len(white)>=len(yellow):
+        print("follow white")
         x = 0
         y = 0
         for b in white:
@@ -116,11 +118,11 @@ def callback(data):
     L = np.sqrt(x**2 + y**2)
     alpha = np.arctan2(y,x)
     v = 0.2
-    og = 4
+    og = 2
     if np.abs(x) > 0.23:
         print("gofast")
-        v = 0.8
-        og = 1.0
+        v = 0.6
+        og = 0.8
 
     # v = 0.2
     # og = 3.5  
