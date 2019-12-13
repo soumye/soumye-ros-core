@@ -29,6 +29,7 @@
 		<remap from="pure_pursuit_node/seglist_filtered" to="lane_filter_node/seglist_filtered"/>
 		<remap from="pure_pursuit_node/segment_list" to="ground_projection/lineseglist_out"/>
         <node  pkg="$(arg pkg_name)" type="$(arg node_name).py" name="$(arg node_name)" output="screen" required="true">
+		<param name="~config_file_name" value="$(arg veh)"/>
         </node>
     </group>
 </launch>
