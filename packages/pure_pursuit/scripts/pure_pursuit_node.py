@@ -163,7 +163,6 @@ def callback(data):
 
 def processImage(image_msg):
     global stop
-    stop = False
     image_size = [120,160]
     # top_cutoff = 40
 
@@ -215,22 +214,27 @@ def processImage(image_msg):
                               cv2.RETR_EXTERNAL,
                               cv2.CHAIN_APPROX_SIMPLE)[-2]
 
-    if len(cnts)>1:
+    if len(cnts)>0:
         print('object detected')
         red_area = max(cnts, key=cv2.contourArea)
         (xg,yg,wg,hg) = cv2.boundingRect(red_area)
         box_img = cv2.rectangle(image_cv,(xg,yg),(xg+wg, yg+hg),(0,255,0),2)
         print('BEFORE X', [xg, xg+wg], " BEFORE Y", [yg+hg, yg+hg])
-        x_arr, y_arr = gpg.point2ground([xg, xg+wg], [yg + hg, yg + hg], image_size[0], image_size[1])
-        print("BOTTOM OF ROBOT : X ", x_arr, ' Y :', y_arr)
-        if x_arr[0] < 0.3:
+
+        # x_arr, y_arr = gpg.point2ground([xg, xg+wg], [yg + hg, yg + hg], image_size[0], image_size[1])
+        # print("BOTTOM OF ROBOT : X ", x_arr, ' Y :', y_arr)
+        # if x_arr[0] < 0.3:
+        if yg+hg > 60:
             print("STOP THE FUCKIN Bot")
             stop = True
+        else 
+            stop = False
         image_msg_out = bridge.cv2_to_imgmsg(box_img, "bgr8")
         # image_msg_out = bridge.cv2_to_imgmsg(bw, "mono8")
         image_msg_out.header.stamp = image_msg.header.stamp
         pub_image.publish(image_msg_out)
     else:
+        stop = False
         image_msg_out = bridge.cv2_to_imgmsg(image_cv, "bgr8")
         # image_msg_out = bridge.cv2_to_imgmsg(bw, "mono8")
         image_msg_out.header.stamp = image_msg.header.stamp
